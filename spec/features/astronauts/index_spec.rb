@@ -75,15 +75,15 @@ RSpec.describe "Astronauts Index Page" do
       visit "/astronauts" 
 
       within("##{@astronaut_1.id}") do 
-        expect(page).to have_content("#{@astronaut_1.total_time_in_space} days")
+        expect(page).to have_content("Total Time in Space: #{@astronaut_1.total_time_in_space} days")
       end
 
       within("##{@astronaut_2.id}") do 
-        expect(page).to have_content("#{@astronaut_2.total_time_in_space} days")
+        expect(page).to have_content("Total Time in Space: #{@astronaut_2.total_time_in_space} days")
       end
 
       within("##{@astronaut_3.id}") do 
-        expect(page).to have_content("#{@astronaut_3.total_time_in_space} days")
+        expect(page).to have_content("Total Time in Space: #{@astronaut_3.total_time_in_space} days")
       end
     end
   end
