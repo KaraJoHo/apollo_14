@@ -23,7 +23,7 @@ RSpec.describe "Astronaut show page" do
 
   describe 'When visiting the astronaut show page' do 
     it 'is the name of the astronaut and a  list of the missions they have been on' do 
-      visit "astronauts/#{@astronaut_1.id}"
+      visit "/astronauts/#{@astronaut_1.id}"
 
       within(".astronaut_details") do 
         expect(page).to have_content(@astronaut_1.name)
@@ -32,15 +32,15 @@ RSpec.describe "Astronaut show page" do
     end
 
     it 'has a form to add an existing mission and redirects to show page with new mission' do 
-      visit "astronauts/#{@astronaut_1.id}" 
+      visit "/astronauts/#{@astronaut_1.id}" 
       # save_and_open_page
 
       expect(page).to have_content("Add a new mission")
 
-      fill_in("Mission ID", with: @mission_4.id)
+      fill_in("mission_id", with: "#{@mission_4.id}")
       click_button("Submit")
 
-      expect(current_path).to eq("astronauts/#{@astronaut_1.id}")
+      expect(current_path).to eq("/astronauts/#{@astronaut_1.id}")
  
       within(".astronaut_details") do 
         expect(page).to have_content(@astronaut_1.name)
