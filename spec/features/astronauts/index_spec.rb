@@ -70,5 +70,21 @@ RSpec.describe "Astronauts Index Page" do
         expect(@mission_3.title).to appear_before(@mission_1.title)
       end
     end
+
+    it 'shows the total time in space for each astronaut' do 
+      visit "/astronauts" 
+
+      within("##{@astronaut_1.id}") do 
+        expect(page).to have_content("#{@astronaut_1.total_time_in_space} days")
+      end
+
+      within("##{@astronaut_2.id}") do 
+        expect(page).to have_content("#{@astronaut_2.total_time_in_space} days")
+      end
+
+      within("##{@astronaut_3.id}") do 
+        expect(page).to have_content("#{@astronaut_3.total_time_in_space} days")
+      end
+    end
   end
 end

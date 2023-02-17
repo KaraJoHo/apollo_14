@@ -37,9 +37,14 @@ describe Astronaut, type: :model do
   end
 
   describe '#order_missions_by_alphabetical' do 
-    it 'lists the astronauts missions in alphabetical order' do 
-      # expect(@astronaut_1.order_missions_by_alphabetical).to eq([@mission_2, @mission_3, @mission_1])
-      expect(@astronaut_1.order_missions_by_alphabetical).to eq(["Jupiter", "Mars", "Moon"])
+    it 'lists the astronauts mission names in alphabetical order' do 
+      expect(@astronaut_1.order_mission_names_by_alphabetical).to eq(["Jupiter", "Mars", "Moon"])
+    end
+  end
+
+  describe '#total_time_in_space' do 
+    it 'is the astronauts total time in space across all their missions' do 
+      expect(@astronaut_1.total_time_in_space).to eq(870)
     end
   end
 end
