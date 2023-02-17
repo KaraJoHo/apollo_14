@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get "/astronauts", to: "astronauts#index"
   get "/astronauts/:astronaut_id", to: "astronauts#show"
+
+  post "/astronaut_missions/:astronaut_id", to: 'astronaut_missions#create'
 end

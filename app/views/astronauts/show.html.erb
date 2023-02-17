@@ -2,3 +2,11 @@
   <%= @astronaut.name %>
   <%= @astronaut.order_mission_names_by_alphabetical %>
 </div>
+
+
+  <h3> Add a new mission </h3>
+  <%= form_with url: "/astronaut_missions/#{@astronaut.id}", method: :post, local: true do |form| %>
+    <%= form.label :mission_id, "Mission ID" %>
+    <%= form.number_field :mission_id %>
+    <%= form.button "Submit" %>
+  <% end %>
